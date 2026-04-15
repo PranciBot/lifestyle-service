@@ -1,0 +1,15 @@
+info:
+  name: record
+  type: http
+  seq: 1
+
+http:
+  method: POST
+  url: "{{host}}bio-clock/record/sleep"
+  auth: inherit
+
+settings:
+  encodeUrl: true
+  timeout: 0
+  followRedirects: true
+  maxRedirects: 5
