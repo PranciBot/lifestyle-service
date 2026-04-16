@@ -12,7 +12,7 @@ You can run your application in dev mode that enables live coding using:
 ./mvnw quarkus:dev
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
+> **_NOTE:_** Quarkus now ships with a Dev UI, which is available in dev mode only at <http://localhost:8080/q/dev/>.
 
 ## Packaging and running the application
 
@@ -34,6 +34,29 @@ If you want to build an _über-jar_, execute the following command:
 ```
 
 The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
+
+## Deploy profile (build app, image, helm)
+
+This module now provides a `deploy` Maven profile similar to other modules.
+
+Run from this folder:
+
+```shell script
+./mvnw clean install -Pdeploy
+```
+
+What it does during the Maven lifecycle:
+
+- Builds the application artifact.
+- Builds a local Docker image via Quarkus container-image.
+- Runs Helm dependency build and Helm upgrade/install for `chart/`.
+
+Common overrides:
+
+```shell script
+./mvnw clean install -Pdeploy -Dimage.tag=1.0.0
+./mvnw clean install -Pdeploy -DskipHelmDeploy=true
+```
 
 ## Creating a native executable
 
