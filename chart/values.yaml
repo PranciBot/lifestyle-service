@@ -1,22 +1,23 @@
 replicaCount: 1
 image:
-  repository: lifestyle-service
+  group:
+  repository:
   pullPolicy: IfNotPresent
-  tag: "latest"
-imagePullSecrets: [ ]
+  tag:
+imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 serviceAccount:
   create: true
   automount: true
-  annotations: { }
+  annotations: {}
   name: ""
-podAnnotations: { }
-podLabels: { }
+podAnnotations: {}
+podLabels: {}
 
-podSecurityContext: { }
+podSecurityContext: {}
 
-securityContext: { }
+securityContext: {}
 service:
   type: ClusterIP
   port: 8080
@@ -28,12 +29,12 @@ ingress:
   hosts:
     - host: ""
       paths:
-        - path: /
+        - path: /lifestyle-api
           pathType: Prefix
-  tls: [ ]
+  tls: []
 httpRoute:
   enabled: false
-  annotations: { }
+  annotations: {}
   parentRefs:
     - name: gateway
       sectionName: http
@@ -45,25 +46,25 @@ httpRoute:
             type: PathPrefix
             value: /headers
 
-resources: { }
+resources: {}
 livenessProbe:
   httpGet:
-    path: /q/health/live
+    path: /healthz
     port: http
 readinessProbe:
   httpGet:
-    path: /q/health/ready
+    path: /healthz
     port: http
 autoscaling:
   enabled: false
   minReplicas: 1
   maxReplicas: 100
   targetCPUUtilizationPercentage: 80
-volumes: [ ]
-volumeMounts: [ ]
+volumes: []
+volumeMounts: []
 
-nodeSelector: { }
+nodeSelector: {}
 
-tolerations: [ ]
+tolerations: []
 
-affinity: { }
+affinity: {}

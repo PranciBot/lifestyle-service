@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <artifactId>lifestyle-service</artifactId>
     <packaging>quarkus</packaging>
@@ -13,7 +13,7 @@
 
     <properties>
         <compiler-plugin.version>3.15.0</compiler-plugin.version>
-        <maven.compiler.release>21</maven.compiler.release>
+        <maven.compiler.release>25</maven.compiler.release>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
@@ -21,6 +21,7 @@
         <quarkus.platform.version>3.34.3</quarkus.platform.version>
         <skipITs>true</skipITs>
         <surefire-plugin.version>3.5.4</surefire-plugin.version>
+        <image.group>admin</image.group>
         <image.repository>lifestyle-service</image.repository>
         <image.tag>latest</image.tag>
         <releaseName>lifestyle-service</releaseName>
@@ -142,6 +143,7 @@
             <properties>
                 <quarkus.container-image.build>true</quarkus.container-image.build>
                 <quarkus.container-image.push>false</quarkus.container-image.push>
+                <quarkus.container-image.group>${image.group}</quarkus.container-image.group>
                 <quarkus.container-image.name>${image.repository}</quarkus.container-image.name>
                 <quarkus.container-image.tag>${image.tag}</quarkus.container-image.tag>
             </properties>
@@ -190,18 +192,11 @@
                                         <argument>default</argument>
                                         <argument>--create-namespace</argument>
                                         <argument>--set</argument>
+                                        <argument>image.group=${image.group}</argument>
+                                        <argument>--set</argument>
                                         <argument>image.repository=${image.repository}</argument>
                                         <argument>--set</argument>
                                         <argument>image.tag=${image.tag}</argument>
-                                        <argument>--set</argument>
-                                        <argument>ingress.hosts[0].host=${lifestyle.service.api.ingress.host}</argument>
-                                        <argument>--set</argument>
-                                        <argument>ingress.hosts[0].paths[0].path=/
-                                        </argument>
-                                        <argument>--set</argument>
-                                        <argument>
-                                            ingress.hosts[0].paths[0].pathType=Prefix
-                                        </argument>
                                     </arguments>
                                 </configuration>
                             </execution>
