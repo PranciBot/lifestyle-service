@@ -134,6 +134,48 @@
                     </systemPropertyVariables>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.5.1</version>
+
+                <executions>
+                    <execution>
+                        <id>helm-package</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>helm</executable>
+                            <arguments>
+                                <argument>package</argument>
+                                <argument>${project.basedir}/deploy/chart</argument>
+                                <argument>-d</argument>
+                                <argument>${project.build.directory}</argument>
+                                <argument>--version</argument>
+                                <argument>${version}</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>push</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>curl.exe</executable>
+                            <arguments>
+                                <argument>--form</argument>
+                                <argument>chart=@${project.build.directory}/lifestyle-service-${appVersion}.tgz</argument>
+                                <argument>${chart.museum.url}/api/charts</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 
@@ -187,7 +229,7 @@
                                         <argument>upgrade</argument>
                                         <argument>--install</argument>
                                         <argument>${releaseName}</argument>
-                                        <argument>${project.basedir}/chart</argument>
+                                        <argument>${project.basedir}/deploy/chart</argument>
                                         <argument>--namespace</argument>
                                         <argument>default</argument>
                                         <argument>--create-namespace</argument>
