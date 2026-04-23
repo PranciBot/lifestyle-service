@@ -1,10 +1,10 @@
-package com.dthvinh.services.impl;
+package com.prancibot.services.impl;
 
-import com.dthvinh.dto.WakeSleepRecord;
-import com.dthvinh.enums.Activity;
-import com.dthvinh.kafka.ApplicationKafkaPublisher;
-import com.dthvinh.services.BioClockRecordService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.prancibot.dto.WakeSleepRecord;
+import com.prancibot.enums.Activity;
+import com.prancibot.kafka.ApplicationKafkaPublisher;
+import com.prancibot.services.BioClockRecordService;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

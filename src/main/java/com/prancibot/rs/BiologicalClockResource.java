@@ -1,6 +1,6 @@
-package com.dthvinh.rs;
+package com.prancibot.rs;
 
-import com.dthvinh.services.BioClockRecordService;
+import com.prancibot.services.BioClockRecordService;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;

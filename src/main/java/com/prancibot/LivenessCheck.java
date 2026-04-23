@@ -1,4 +1,4 @@
-package com.dthvinh;
+package com.prancibot;
 
 import org.eclipse.microprofile.health.HealthCheck;
 import org.eclipse.microprofile.health.HealthCheckResponse;

@@ -1,4 +1,4 @@
-package com.dthvinh.kafka;
+package com.prancibot.kafka;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import org.eclipse.microprofile.config.inject.ConfigProperty;

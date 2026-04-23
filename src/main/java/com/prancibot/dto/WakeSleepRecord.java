@@ -1,6 +1,6 @@
-package com.dthvinh.dto;
+package com.prancibot.dto;
 
-import com.dthvinh.enums.Activity;
+import com.prancibot.enums.Activity;
 
 public class WakeSleepRecord {
     public String timezone;

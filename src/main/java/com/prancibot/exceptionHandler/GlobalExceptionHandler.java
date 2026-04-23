@@ -1,13 +1,12 @@
-package com.dthvinh.exceptionHandler;
+package com.prancibot.exceptionHandler;
 
-import java.time.ZoneId;
-import java.time.ZonedDateTime;
-
-import com.dthvinh.common.dto.ExceptionResponse;
-
+import com.prancibot.common.dto.ExceptionResponse;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.ExceptionMapper;
 import jakarta.ws.rs.ext.Provider;
+
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 @Provider
 public class GlobalExceptionHandler implements ExceptionMapper<Exception> {

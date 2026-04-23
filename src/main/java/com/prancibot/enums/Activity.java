@@ -1,4 +1,4 @@
-package com.dthvinh.enums;
+package com.prancibot.enums;
 
 import java.util.Arrays;
 import java.util.Map;

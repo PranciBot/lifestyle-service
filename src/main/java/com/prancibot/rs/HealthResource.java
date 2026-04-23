@@ -1,4 +1,4 @@
-package com.dthvinh.rs;
+package com.prancibot.rs;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

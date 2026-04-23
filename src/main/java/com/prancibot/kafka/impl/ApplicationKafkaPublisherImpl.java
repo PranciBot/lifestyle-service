@@ -1,7 +1,7 @@
-package com.dthvinh.kafka.impl;
+package com.prancibot.kafka.impl;
 
-import com.dthvinh.kafka.ApplicationKafkaPublisher;
-import com.dthvinh.kafka.KafkaConfig;
+import com.prancibot.kafka.ApplicationKafkaPublisher;
+import com.prancibot.kafka.KafkaConfig;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import org.apache.kafka.clients.producer.Callback;

@@ -1,4 +1,4 @@
-package com.dthvinh.kafka;
+package com.prancibot.kafka;
 
 import org.apache.kafka.clients.producer.Callback;
 
