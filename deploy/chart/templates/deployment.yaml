@@ -49,11 +49,6 @@ spec:
             - configMapRef:
                 name: {{ printf "%s-shared-config" .Release.Name }}
           {{- end }}
-          env:
-            - name: KAFKA_BOOTSTRAP_SERVERS
-              value: {{ default .Values.global.sharedConfig.kafka.bootstrapServers .Values.kafka.bootstrapServers | quote }}
-            - name: KAFKA_PRODUCER_RETRIES
-              value: {{ default .Values.global.sharedConfig.kafka.producerRetries .Values.kafka.producer.retries | quote }}
           {{- with .Values.livenessProbe }}
           livenessProbe:
             {{- toYaml . | nindent 12 }}

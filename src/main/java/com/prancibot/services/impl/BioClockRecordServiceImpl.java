@@ -33,7 +33,7 @@ public class BioClockRecordServiceImpl implements BioClockRecordService {
         WakeSleepRecord response = new WakeSleepRecord(userTimezone, instant.toString(), validActivity);
 
         try {
-            publisher.sendMessage(TOPIC, null, mapper.writeValueAsString(response));
+            publisher.sendMessage(TOPIC, activity, mapper.writeValueAsString(response));
         } catch (Exception e) {
             LOGGER.info("Something went wrong when record {} activity, {}", activity, e.getMessage());
         }

@@ -69,11 +69,4 @@ tolerations: []
 
 affinity: {}
 
-kafka:
-  # DEPRECATED: Prefer umbrella `global.sharedConfig.kafka.*` with `global.useSharedConfig=true`.
-  # Keep these local keys only for per-service overrides during migration.
-  bootstrapServers: "192.168.1.196:30092"
-  producer:
-    retries: "3"
-
 

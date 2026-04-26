@@ -1,4 +1,0 @@
-name: default
-variables:
-  - name: host
-    value: http://localhost:32080/
